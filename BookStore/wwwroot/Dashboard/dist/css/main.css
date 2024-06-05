@@ -1,0 +1,23 @@
+﻿
+.card-body::after, .card-footer::after, .card-header::after {
+    display: none;
+}
+.btnCreate  {
+    background-color: #6f42c1;
+}
+.HomeCategory {
+    color: #6f42c1;
+}
+.cardLine {
+    border-top: solid 3px #6f42c1;
+}
+.title {
+    
+    font-weight :700;
+}
+.CategoryTableTD
+{
+    width: 350px !important;
+
+}
+

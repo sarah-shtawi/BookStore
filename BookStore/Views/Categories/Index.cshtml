@@ -1,16 +1,23 @@
 ﻿@model List<Category>
+@section Title {Categories }
+@section SubTitle {Show Categories }
+@section Buttons {
+    <a asp-controller="Categories" asp-action="Create" class="btn rounded-pill btn text-white btnCreate ">Create Category</a>
+}
 
-        
 @if (!Model.Any())
 {
-    <div class="alert alert-warning alert-dismissible">
+    <div class="card-body">
+        <div class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
         No Data Found
+        </div>
     </div>
 }
 else
 {
+    <div class="card-body">
     <table class="table">
         <thead>
             <tr>
@@ -18,20 +25,25 @@ else
                 <th>Name</th>
                 <th>CreatedOn Date</th>
                 <th style="width: 40px">UpdateOn Date</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in @Model)
             {
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.CreatedOn</td>
-                    <td>@item.UpdatedOn</td>
+                    <td class="CategoryTableTD">@item.Id</td>
+                    <td class="CategoryTableTD">@item.Name</td>
+                    <td class="CategoryTableTD">@item.CreatedOn</td>
+                    <td class="CategoryTableTD">@item.UpdatedOn</td>
+                    <td class="CategoryTableTD">
+                        <a asp-controller="Categories" asp-action="Edit" asp-route-Id="@item.Id">Edit</a>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
+</div>
 }
 
         
