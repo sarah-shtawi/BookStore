@@ -1,0 +1,31 @@
+﻿@using BookStore.ViewModel
+@model CategoryVM
+@section Title {
+ Categories
+}
+@section SubTitle {
+  Details
+}
+
+<div class="card-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Name</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <tr>
+                    <td class="CategoryTableTD">@Model.Id</td>
+                    <td class="CategoryTableTD">@Model.Name</td>
+                    <td class="CategoryTableTD"> @Model.CreatedOn </td>
+                    <td class="CategoryTableTD"> @Model.UpdatedOn </td>
+                </tr>
+            
+        </tbody>
+    </table>
+</div>

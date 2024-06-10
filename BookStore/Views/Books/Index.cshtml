@@ -1,0 +1,61 @@
+﻿@using BookStore.ViewModel
+@model List<BookShowVM>
+@section Title { Books }
+@section SubTitle { Show Books }
+@section Buttons {
+    <a asp-controller="Books" asp-action="Create" class="btn rounded-pill btn text-white btnCreate ">Create Book</a>
+}
+@if (!Model.Any())
+{
+    <div class="card-body">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+            No Data Found
+        </div>
+    </div>
+}
+else
+{
+    <div class="card-body w-100">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center" style="width: 6px">#</th>
+                    <th class="text-center">Title</th>
+                    <th class="text-center" >Author </th>
+                    <th class="text-center" >ImageUrl</th>
+                    <th class="text-center" >Categories</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in @Model)
+                {
+                    <tr class="text-center">
+                        <td class="CategoryTableTD">@item.Id</td>
+                        <td class="CategoryTableTD">@item.Title</td>
+                        <td class="CategoryTableTD"> @item.Author </td>
+                        <td> <img src="~/img/Books/@item.ImageUrl" width ="70px"/></td>
+                        <td> @string.Join(", ", item.Categories ) </td>
+
+                        <td class="CategoryTableTD">
+                            <a asp-controller="Categories" asp-action="Edit" asp-route-Id="@item.Id"
+                               class="btn rounded-pill btn-sm text-white btnCreate w-75  ">
+                                Edit <i class="fas fa-edit"></i>
+                            </a>
+                            <a asp-controller="Categories" asp-action="Details" asp-route-Id="@item.Id"
+                               class="btn rounded-pill btn-sm btn-success text-white w-75 mt-1">
+                                Details <i class="fas fa-info-circle"></i>
+                            </a>
+                            <a asp-controller="Books" asp-action="Delete" asp-route-Id="@item.Id"
+                               class="btn btn-sm btn-danger rounded-pill text-white w-75 mt-1">
+                                Delete <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,5 +1,4 @@
-﻿
-.card-body::after, .card-footer::after, .card-header::after {
+﻿.card-body::after, .card-footer::after, .card-header::after {
     display: none;
 }
 .btnCreate  {
@@ -8,16 +7,20 @@
 .HomeCategory {
     color: #6f42c1;
 }
-.cardLine {
-    border-top: solid 3px #6f42c1;
-}
 .title {
-    
-    font-weight :700;
+    font-weight: 700;
+}
+
+.cardMain {
+    border: solid 3px #6f42c1;
+    padding: 20px;
 }
 .CategoryTableTD
 {
     width: 350px !important;
-
 }
+input {
+    border: solid 1px #6f42c1;
+}
+
 

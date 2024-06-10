@@ -1,0 +1,62 @@
+﻿@using BookStore.ViewModel
+@model BookVM
+@section Title { Books }
+@section SubTitle { Create your Book }
+
+<form asp-controller="Books" asp-action="Create" enctype="multipart/form-data">
+    <div class="card-body">
+        <div class="d-flex ">
+            <div class="form-group w-50 p-2 mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input type="Text" class="form-control" asp-for="Title" />
+                <span class="text-danger" asp-validation-for="Title"></span>
+            </div>
+
+            <div class="form-group w-50 p-2 mb-3">
+                <label asp-for="AuthorId"></label>
+                <select asp-for="AuthorId" class="form-control" asp-items="@Model.Authors"></select>
+                <span class="text-danger" asp-validation-for="AuthorId"></span>
+
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div class="form-group w-50 p-2 mb-3">
+                <label asp-for="Publisher" class="form-label"></label>
+                <input type="Text" class="form-control" asp-for="Publisher" />
+                <span class="text-danger" asp-validation-for="Publisher"></span>
+            </div>
+
+            <div class="form-group w-50 p-2 mb-3">
+                <label asp-for="PublishDate" class="form-label"></label>
+                <input type="date" class="form-control" asp-for="PublishDate" />
+                <span class="text-danger" asp-validation-for="PublishDate"></span>
+            </div>
+        </div>
+       
+
+        
+        <div class="form-group mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea class="form-control" asp-for="Description" > </textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="ImageUrl" class="form-label"></label>
+            <input type="file" class="form-control" asp-for="ImageUrl" />
+            <span class="text-danger" asp-validation-for="ImageUrl"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="SelectedCategories" class="form-label"></label>
+            <select asp-for="SelectedCategories" asp-items="@Model.Categories" class="form-control"></select>
+            <span class="text-danger" asp-validation-for="SelectedCategories"></span>
+        </div>
+
+       <button type="submit" class="btn rounded-pill text-white btnCreate">
+            Create Book
+        </button>
+    </div>
+</form>
+
